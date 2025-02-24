@@ -54,11 +54,11 @@ def length_of_longest_substring_n2(s):
     length = len(s)
     for i in range(length):
         chars = set()
-            for o in range(i, length):
-                if s[o] in chars:
-                    break
-                chars.add(s[o])
-                maxl = max(maxl, o - i + 1)
+        for o in range(i, length):
+            if s[o] in chars:
+                break
+            chars.add(s[o])
+            maxl = max(maxl, o - i + 1)
     return maxl
 # TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n(s):
