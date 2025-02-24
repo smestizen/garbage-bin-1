@@ -37,7 +37,7 @@ def length_of_longest_substring_n3(s):
                 chars.add(s[p])
             if dupe:
                 maxl = max(maxl, o - i)
-      return maxl
+    return maxl
 # TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n2(s):
     """
