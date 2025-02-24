@@ -14,7 +14,6 @@ Students. Academic penalties up to and including an F in the course are likely.
 
 UT EID 1: jrz554
 """
-# TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n3(s):
     """
     Finds the length of the longest substring without repeating characters
@@ -35,10 +34,9 @@ def length_of_longest_substring_n3(s):
                     dupe = True
                     break
                 chars.add(s[p])
-            if dupe:
+            if not dupe:
                 maxl = max(maxl, o - i)
     return maxl
-# TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n2(s):
     """
     Finds the length of the longest substring without repeating characters
@@ -60,7 +58,6 @@ def length_of_longest_substring_n2(s):
             chars.add(s[o])
             maxl = max(maxl, o - i + 1)
     return maxl
-# TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n(s):
     """
     Finds the length of the longest substring without repeating characters
