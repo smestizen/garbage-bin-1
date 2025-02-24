@@ -16,69 +16,72 @@ UT EID 1: jrz554
 """
 # TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n3(s):
-      """
-      Finds the length of the longest substring without repeating characters
-      using a brute force approach (O(N^3)).
+    """
+    Finds the length of the longest substring without repeating characters
+    using a brute force approach (O(N^3)).
 
-      pre: s is a string of arbitrary length, possibly empty.
-      post: Returns an integer >= 0 representing the length of the longest substring
-      in s that contains no repeating characters.
-      """
-      maxl = 0
-      length = len(s)
-      for i in range(length):
-            for o in range(i + 1, length + 1):
-                  chars = set()
-                  for p in range(i, o):
-                        if s[p] in chars:
-                              break
-                        chars.add(s[p])
-                  maxl = max(maxl, o - i)
+    pre: s is a string of arbitrary length, possibly empty.
+    post: Returns an integer >= 0 representing the length of the longest substring
+    in s that contains no repeating characters.
+    """
+    maxl = 0
+    length = len(s)
+    for i in range(length):
+        for o in range(i + 1, length + 1):
+            chars = set()
+            dupe = False
+                for p in range(i, o):
+                    if s[p] in chars:
+                        dupe = True
+                        break
+                    chars.add(s[p])
+            if dupe:
+                maxl = max(maxl, o - i)
       return maxl
 # TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n2(s):
-      """
-      Finds the length of the longest substring without repeating characters
-      using a frequency list approach (O(N^2)), converting each character to
-      their corresponding numeric representation in ASCII as the index into the
-      frequency list.
+    """
+    Finds the length of the longest substring without repeating characters
+    using a frequency list approach (O(N^2)), converting each character to
+    their corresponding numeric representation in ASCII as the index into the
+    frequency list.
 
-      pre: s is a string of arbitrary length, possibly empty.
-      post: Returns an integer >= 0 representing the length of the longest substring
-      in s that contains no repeating characters.
-      """
-      maxl = 0 
-      length = len(s)
-      for i in range(length):
-            chars = set()
+    pre: s is a string of arbitrary length, possibly empty.
+    post: Returns an integer >= 0 representing the length of the longest substring
+    in s that contains no repeating characters.
+    """
+    maxl = 0
+    length = len(s)
+    for i in range(length):
+        chars = set()
             for o in range(i, length):
-                  if s[o] in chars:
-                        break
-                  chars.add(s[o])
-                  maxl = max(maxl, o - i + 1)
-      return maxl
+                if s[o] in chars:
+                    break
+                chars.add(s[o])
+                maxl = max(maxl, o - i + 1)
+    return maxl
 # TODO: implement this function. You may delete this comment when you are done.
 def length_of_longest_substring_n(s):
-      """
-      Finds the length of the longest substring without repeating characters
-      using a frequency list approach (O(N)), converting each character to
-      their corresponding numeric representation in ASCII as the index into the
-      frequency list. However, this approach stops early, breaking out of the inner
-      loop when a repeating character is found. You may also choose to challenge
-      yourself by implementing a sliding window approach.
+    """
+    Finds the length of the longest substring without repeating characters
+    using a frequency list approach (O(N)), converting each character to
+    their corresponding numeric representation in ASCII as the index into the
+    frequency list. However, this approach stops early, breaking out of the inner
+    loop when a repeating character is found. You may also choose to challenge
+    yourself by implementing a sliding window approach.
 
-      pre: s is a string of arbitrary length, possibly empty.
-      post: Returns an integer >= 0 representing the length of the longest substring
-      in s that contains no repeating characters.
-      """
-      chars = set()
-      left = 0
-      right = 0 
-      maxl = 0
-      while right < len(s):
-            while s[right] in chars:
-                  chars.remove(s[left])
-                  left += 1
-            chars.add(s[right])
-            maxl = max(maxl, right - left + 1)
-      return maxl
+    pre: s is a string of arbitrary length, possibly empty.
+    post: Returns an integer >= 0 representing the length of the longest substring
+    in s that contains no repeating characters.
+    """
+    chars = set()
+    left = 0
+    right = 0
+    maxl = 0
+    while right < len(s):
+        while s[right] in chars:
+            chars.remove(s[left])
+            left += 1
+        chars.add(s[right])
+        maxl = max(maxl, right - left + 1)
+    return maxl
