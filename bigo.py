@@ -80,5 +80,6 @@ def length_of_longest_substring_n(s):
             chars.remove(s[left])
             left += 1
         chars.add(s[right])
-        maxl = max(maxl, right - left + 1)
+        right += 1
+    maxl = max(maxl, right - left + 1)
     return maxl
