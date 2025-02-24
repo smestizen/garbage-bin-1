@@ -30,11 +30,11 @@ def length_of_longest_substring_n3(s):
         for o in range(i + 1, length + 1):
             chars = set()
             dupe = False
-                for p in range(i, o):
-                    if s[p] in chars:
-                        dupe = True
-                        break
-                    chars.add(s[p])
+            for p in range(i, o):
+                if s[p] in chars:
+                    dupe = True
+                    break
+                chars.add(s[p])
             if dupe:
                 maxl = max(maxl, o - i)
       return maxl
